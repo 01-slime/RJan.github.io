@@ -30,27 +30,42 @@ liff.init({
     // Start to use liff's api
     // 這邊開始寫使用其他功能
     
-    }).catch(function(error) {
-  console.log(error);
     //待查尋的功能
+    }).catch(function(error) {
+    console.log(error);
     
     // 引用 LIFF SDK 的頁面，頁面中的 lang 值
-liff.getLanguage();
+    liff.getLanguage();
 
-// LIFF SDK 的版本
-liff.getVersion();
+    // LIFF SDK 的版本
+    liff.getVersion();
 
-// 回傳是否由 LINE App 存取
-liff.isInClient();
+    // 回傳是否由 LINE App 存取
+    liff.isInClient();
 
-// 使用者是否登入 LINE 帳號
-liff.isLoggedIn();
+    // 使用者是否登入 LINE 帳號
+    liff.isLoggedIn();
 
-// 回傳使用者作業系統：ios、android、web
-liff.getOS();
+    // 回傳使用者作業系統：ios、android、web
+    liff.getOS();
 
-// 使用者的 LINE 版本
-liff.getLineVersion();
+    // 使用者的 LINE 版本
+    liff.getLineVersion();
+
+    // 登入
+    liff.login({
+        // 使用者登入後要去到哪個頁面
+        redirectUri: 'https://01-slime.github.io/RJan.github.io/'
+    });
+
+    // 登出
+    liff.logout();
+
+    // 取得使用者類型
+    liff.getContext();
+
+    //取得使用者公開資料
+    liff.getProfile()
 });
 </script>
     </body>
