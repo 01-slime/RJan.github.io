@@ -30,6 +30,41 @@ liff.init({
     // Start to use liff's api
     // 這邊開始寫使用其他功能
     
+    //gtag設定
+    async function configGtag () {
+        const config = {
+        app_name: `LIFF ${liff.getOS()}`,
+        send_page_view: false,
+        transport_type: 'beacon',
+        }
+        const profile = await liff.getProfile()
+        if (profile.userID) config.user_id = profile.userID
+        if (liff.isInClient()) config.app_version = liff.getLineVersion()
+        gtag('config', 'G-PV0FC44PCR', config)
+    }
+
+    //送screenview
+    function gTagScreenView (screenName) {
+        return new Promise(resolve => {
+            gTag('event', 'screen_view', {
+                event_callback: resolve,
+                screen_name: screenName,
+            })
+        })
+    }
+
+    //送event
+    function gTagEvent (category, action, label, value = 1){
+        return new Promise(resolve => {
+            gtag('event', action, {
+                event_callback: resolve,
+                event_category: category,
+                event_label: label,
+                value,
+            })
+        })
+    }
+    
     //待查尋的功能
     }).catch(function(error) {
     console.log(error);
