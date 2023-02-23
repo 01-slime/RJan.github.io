@@ -1,19 +1,17 @@
-#index.html
-
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
-    <title>LIFF測試</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MH9M59N');</script>
-<!-- End Google Tag Manager -->
-</head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+        <title>LIFF測試</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                                                              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                                    })(window,document,'script','dataLayer','GTM-MH9M59N');</script>
+        <!-- End Google Tag Manager -->
+    </head>
     <body>
         <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         <!-- Google Tag Manager (noscript) -->
@@ -23,8 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <script>
             liff.init({
                 liffId: '1657549468-9zdmdydP'
-            }).then(function() {
-                console.log('LIFF init');
+            }).then(() => {
                 
                 // Start to use liff's api
                 // 這邊開始寫使用其他功能
@@ -88,18 +85,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     redirectUri: 'https://01-slime.github.io/RJan.github.io/'
                 });
                 
-                // 登出
-                liff.logout();
-                
                 // 取得使用者類型
                 liff.getContext();
                 
                 //取得使用者公開資料
                 liff.getProfile()
-            //初步判斷是檢查錯誤的功能
-            }).catch(function(error) {
-                console.log(error);
             });
-</script>
+        </script>
     </body>
 </html>
