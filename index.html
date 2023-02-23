@@ -26,16 +26,25 @@
                 // Start to use liff's api
                 // 這邊開始寫使用其他功能
                 
+                // 使用者是否登入 LINE 帳號
+                liff.isLoggedIn();
+                
+                // 登入
+                liff.login({
+                    // 使用者登入後要去到哪個頁面
+                    redirectUri: 'https://01-slime.github.io/RJan.github.io/'
+                });
+                
                 //gtag設定
                 async function configGtag () {
                     const config = {
-                        app_name: `LIFF ${liff.getOS()}`,
+                        app_name: `LIFF ${liff.getOS()}`,       // 回傳使用者作業系統：ios、android、web
                         send_page_view: false,
                         transport_type: 'beacon',
                     }
-                    const profile = await liff.getProfile()
+                    const profile = await liff.getProfile()     //取得使用者公開資料
                     if (profile.userID) config.user_id = profile.userID
-                    if (liff.isInClient()) config.app_version = liff.getLineVersion()
+                    if (liff.isInClient()) config.app_version = liff.getLineVersion()  // 回傳是否由 LINE App 存取 、獲取用戶的 LINE 版本
                     gtag('config', 'G-PV0FC44PCR', config)
                 }
                 
@@ -70,26 +79,8 @@
                 // 回傳是否由 LINE App 存取
                 liff.isInClient();
                 
-                // 使用者是否登入 LINE 帳號
-                liff.isLoggedIn();
-                
-                // 回傳使用者作業系統：ios、android、web
-                liff.getOS();
-                
-                // 使用者的 LINE 版本
-                liff.getLineVersion();
-                
-                // 登入
-                liff.login({
-                    // 使用者登入後要去到哪個頁面
-                    redirectUri: 'https://01-slime.github.io/RJan.github.io/'
-                });
-                
                 // 取得使用者類型
                 liff.getContext();
-                
-                //取得使用者公開資料
-                liff.getProfile()
             });
         </script>
     </body>
