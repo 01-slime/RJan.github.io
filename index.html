@@ -22,59 +22,9 @@
         liff.init({
             liffId: '1657549468-9zdmdydP'
         }).then(() => {
-            
             // Start to use liff's api
-            // 這邊開始寫使用其他功能
-                
-            // 使用者是否登入 LINE 帳號
-            liff.isLoggedIn();
-                
-            //gtag設定
-            async function configGtag () {
-                const config = {
-                    app_name: `LIFF ${liff.getOS()}`,       // 回傳使用者作業系統：ios、android、web
-                    send_page_view: false,
-                    transport_type: 'beacon',
-                }
-                const profile = await liff.getProfile()     //取得使用者公開資料
-                if (profile.userID) config.user_id = profile.userID
-                if (liff.isInClient()) config.app_version = liff.getLineVersion()  // 回傳是否由 LINE App 存取 、獲取用戶的 LINE 版本
-                gtag('config', 'G-PV0FC44PCR', config)
-            }
-                
-            //送screenview
-            function gTagScreenView (screenName) {
-                return new Promise(resolve => {
-                gTag('event', 'screen_view', {
-                    event_callback: resolve,
-                    screen_name: screenName,
-                    })
-                })
-            }
-                
-            //送event
-            function gTagEvent (category, action, label, value = 1){
-                return new Promise(resolve => {
-                    gtag('event', action, {
-                        event_callback: resolve,
-                        event_category: category,
-                        event_label: label,
-                        value,
-                    })
-                })
-            }
             
-            // 引用 LIFF SDK 的頁面，頁面中的 lang 值
-            liff.getLanguage();
-            
-            // LIFF SDK 的版本
-            liff.getVersion();
-            
-            // 回傳是否由 LINE App 存取
-            liff.isInClient();
-            
-            // 取得使用者類型
-            liff.getContext();
+            console.log(liff.isLoggedIn()); // 判斷開啟此網頁的 LINE 使用者是否為登入狀態
         });
         </script>
     </body>
